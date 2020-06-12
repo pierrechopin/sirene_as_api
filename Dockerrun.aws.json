@@ -1,0 +1,64 @@
+
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [
+    {
+      "name": "last_monthly_stock_applied",
+      "host": {
+        "sourcePath": "/var/app/current/.last_monthly_stock_applied"
+      }
+    },
+    {
+      "name": "tmp",
+      "host": {
+        "sourcePath": "/var/app/current/tmp"
+      }
+    },
+    {
+      "name": "log",
+      "host": {
+        "sourcePath": "/var/app/current/log"
+      }
+    },
+    {
+      "name": "solr",
+      "host":{
+        "sourcePath":"/var/app/current/solr/production/data"
+        }
+    }
+  ],
+  "containerDefinitions": [
+    {
+    "name": "sirene", 
+    "image": "771637207041.dkr.ecr.eu-west-3.amazonaws.com/sirene:production",
+    "memoryReservation": 1024,
+    "command":["bundle","exec","puma","-C","config/puma.rb"],
+    "environment":[
+      {"name":"RAILS_ENV","value":"production"}
+        ],
+    "portMappings":[
+      {
+        "hostPort":80,
+        "containerPort":3000
+      }    ],
+    "mountPoints":[
+        {
+          "sourceVolume":"last_monthly_stock_applied",
+          "containerPath":"/docker_build/.last_monthly_stock_applied/"
+        },
+        {
+          "sourceVolume":"tmp",
+          "containerPath":"/docker_build/tmp/"
+        },
+        {
+          "sourceVolume":"log",
+          "containerPath":"/docker_build/log/"
+        },
+        {
+          "sourceVolume":"solr",
+          "containerPath":"/docker_build/solr/production/data"
+        }
+      ]
+    }
+  ]
+}

@@ -15,5 +15,6 @@ test:
   <<: *defaults
 
 production:
-  database: sirene_as_api_production
+  database: postgres
+  password: <%= ENV['PGPPWD'] %>
   <<: *defaults
