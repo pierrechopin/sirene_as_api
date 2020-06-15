@@ -2,7 +2,7 @@ SHELL:=/bin/bash
 REVISION:=$(shell git rev-parse HEAD)
 
 build:
-	docker build -f Dockerfile -t sirene:${REVISION} .
+	docker build --no-cache -f Dockerfile -t sirene:${REVISION} .
 
 login:
 	zsh -c "`aws ecr get-login --no-include-email --region eu-west-3`"

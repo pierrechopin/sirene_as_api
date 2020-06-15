@@ -9,3 +9,10 @@ defaults: &defaults
 development:
   database: sirene_as_api_docker
   <<: *defaults
+
+production:
+  <<: *defaults
+  host: <%=ENV['PGHOST'] %>
+  username:  <%=ENV['PGUSER'] %>
+  password: <%=ENV['PGPWD'] %>
+  database: sirene

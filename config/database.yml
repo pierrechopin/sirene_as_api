@@ -16,4 +16,5 @@ test:
 
 production:
   database: postgres
+  host: <%= ENV['PGHOST']%>
   <<: *defaults
