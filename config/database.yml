@@ -16,5 +16,4 @@ test:
 
 production:
   database: postgres
-  password: <%= ENV['PGPPWD'] %>
   <<: *defaults
