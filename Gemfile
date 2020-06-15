@@ -14,7 +14,7 @@ gem 'pg', '~> 0.20'
 
 # RDBM Agnostic connection pool manager
 gem 'connection_pool', '~> 2.2'
-
+gem 'puma'
 # Backend jobs
 gem 'redis', '~> 3.0'
 gem 'redis-namespace'
