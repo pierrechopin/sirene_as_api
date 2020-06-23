@@ -1,15 +1,10 @@
 ---
-development:
-  solr:
-    hostname: localhost
-    port: 8982
-    log_level: 'OFF'
-    path: /solr/development
-    memory: 1G
 
-test:
+production:
   solr:
     hostname: localhost
-    port: 8981
+    port: 8983
     log_level: 'OFF'
-    path: /solr/test
+    path: /solr/production
+    memory: 4G
+    solr_home: /docker_build/solr/production/data
