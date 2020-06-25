@@ -23,7 +23,7 @@
     {
       "name": "solr",
       "host":{
-        "sourcePath":"/var/app/current/solr/production/data"
+        "sourcePath":"/var/app/current/solr/development/data"
         }
     }
   ],
@@ -56,7 +56,7 @@
         },
         {
           "sourceVolume":"solr",
-          "containerPath":"/docker_build/solr/production/data"
+          "containerPath":"/docker_build/solr/development/data"
         }
       ]
     }
