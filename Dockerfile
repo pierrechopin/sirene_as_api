@@ -17,7 +17,9 @@ RUN apt-get update -qq && apt-get install -y build-essential \
   libxslt1-dev \
   # for cron scheduler job
   cron \
-  vim
+  vim \
+  redis-server
+
 RUN gem install bundler
 
 ENV APP_HOME /docker_build
