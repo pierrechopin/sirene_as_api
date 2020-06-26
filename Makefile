@@ -1,6 +1,5 @@
-SHELL:=/bin/bash
+SHELL:=/bin/zsh
 REVISION:=$(shell git rev-parse HEAD)
-
 build:
 	docker build -f Dockerfile -t sirene:${REVISION} .
 
